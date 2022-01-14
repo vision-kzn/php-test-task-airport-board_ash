@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+// application.php
+
+require __DIR__.'/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+
+$serviceBuilder = new \App\Service\ServiceBuilder(__DIR__.'/../source/');
+
+$application = new Application();
+$application->add(new \App\Command\ShowAirportBoardCommand(
+    $serviceBuilder->buildFlightRepository()
+));
+
+$application->run();

@@ -1,0 +1,38 @@
+[
+  {
+    "code": "LED",
+    "name": "Пулково",
+    "city": "Санкт‑Петербург",
+    "timeZone": "GMT+03"
+  },
+  {
+    "code": "VKO",
+    "name": "Внуково",
+    "city": "Москва",
+    "timeZone": "GMT+03"
+  },
+  {
+    "code": "DME",
+    "name": "Домодедово",
+    "city": "Москва",
+    "timeZone": "GMT+03"
+  },
+  {
+    "code": "OVB",
+    "name": "Толмачёво",
+    "city": "Новосибирск",
+    "timeZone": "GMT+07"
+  },
+  {
+    "code": "NAN",
+    "name": "Нанди",
+    "city": "Нанди",
+    "timeZone": "GMT+12"
+  },
+  {
+    "code": "LAX",
+    "name": "Лос‑Анджелес",
+    "city": "Лос‑Анджелес",
+    "timeZone": "GMT-08"
+  }
+]

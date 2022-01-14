@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  php:
+    container_name: airport_php
+    build:
+      context: ./.docker/php
+    working_dir: /code
+    volumes:
+      - "./:/code"
+    environment:
+      - MESSAGE=Run in Docker

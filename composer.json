@@ -1,0 +1,20 @@
+{
+  "type": "project",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Necheporenko Mikhail",
+      "homepage": "https://hypeauditor.com/",
+      "role": "Team Leader"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "symfony/console": "^6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
