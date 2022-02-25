@@ -39,9 +39,18 @@ class Flight
 
     public function calculateDurationMinutes(): int
     {
-        $result = $this->calculateMinutesFromStartDay($this->toTime) - $this->calculateMinutesFromStartDay($this->fromTime);
+        $preResult = $this->calculateMinutesFromStartDay($this->toTime) - $this->calculateMinutesFromStartDay($this->fromTime);
 
-        if ($result < 0) {
+        if ($preResult < 0) {
+            $preResult =  $preResult + 1440;
+        }
+
+        $result = $preResult + $this->addTimeZoneCalculation();
+
+        if ($result > 1440 ) {
+            return $result - 1440;
+        }
+        elseif ($result < 0) {
             return $result + 1440;
         }
         else {
@@ -54,5 +63,23 @@ class Flight
         [$hour, $minutes] = explode(':', $time, 2);
 
         return 60 * (int) $hour + (int) $minutes;
+    }
+
+    private function parseTimeZone(string $timeZone): int
+    {
+        if (str_contains($timeZone, '+')) {
+            return (int) substr($timeZone, -2);
+        }
+        else {
+            return -(int) substr($timeZone, -2);
+        }
+    }
+
+    private function addTimeZoneCalculation(): int
+    {
+        $timeZoneFrom = $this->parseTimeZone($this->fromAirport->getTimeZone());
+        $timeZoneTo = $this->parseTimeZone($this->toAirport->getTimeZone());
+
+        return 60 * ($timeZoneFrom - $timeZoneTo);
     }
 }
