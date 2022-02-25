@@ -116,10 +116,11 @@ class ShowAirportBoardCommand extends Command
     private function buildAirportTitle(Airport $airport): string
     {
         return sprintf(
-            '%s (%s, %s)',
+            '%s (%s, %s, %s)',
             $airport->getCity(),
             $airport->getName(),
-            $airport->getCode()
+            $airport->getCode(),
+            $airport->getTimeZone()
         );
     }
 
